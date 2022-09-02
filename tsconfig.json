@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -11,9 +12,21 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["vite/client"]
+    "types": ["vite/client",  "node"],
+    // 模块名到基于 baseUrl的路径映射的列表。
+    "paths": {
+      "@/*": [ "src/*" ],
+      "@views/*": [ "/src/views/*" ],
+			"@components/*": [ "/src/components/*" ],
+			"@utils/*": [ "/src/utils/*" ],
+			"@less/*": [ "/src/less/*" ],
+			"@assets/*": [ "/src/assets/*" ],
+			"@com/*": [ "/src/components/*" ],
+			"@store/*": [ "/src/store/*" ],
+			"@mixins/*": [ "/src/mixins/*" ],
+    }
   },
-  "include": ["/src/**/*.ts", "/src/**/*.d.ts", "/src/**/*.tsx", "/src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   // ts 排除的文件
   "exclude": ["node_modules"]
 }
